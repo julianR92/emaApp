@@ -24,7 +24,10 @@ use App\Http\Livewire\Transactions;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\ResetPasswordExample;
 use App\Http\Livewire\UpgradeToPro;
-use App\Http\Livewire\Users;
+use App\Http\Livewire\UsersDos;
+use App\Http\Livewire\Permission;
+use App\Http\Livewire\Roles\Roles;
+use App\Http\Livewire\Users\Users;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,10 +54,28 @@ Route::get('/404', Err404::class)->name('404');
 Route::get('/500', Err500::class)->name('500');
 Route::get('/upgrade-to-pro', UpgradeToPro::class)->name('upgrade-to-pro');
 
+//  Permisos
+
+// Route::get('/role', 'RoleController@index')->name('role.index');
+// Route::post('/dashboard/role/store', 'RoleController@store')->name('role.create');
+// Route::get('/roles/create','RoleController@create')->name('role.add');
+// Route::get('dashboard/roles/{id}/edit','RoleController@edit')->name('role.edit');
+// Route::post('dashboard/roles/update', 'RoleController@update')->name('role.update');
+// route::get('/dashboard/roles/destroy/{id}', 'RoleController@destroy')->name('role.destroy');
+// Route::get('/roles/ver/{id}','RoleController@verPermisos')->name('roles.ver');
+
+
+//Rutas de permisos
+
+// Route::get('/dashboard/permission/{id}/edit', 'PermissionController@edit')->name('permisos.editar');
+// Route::post('/dashboard/permission/store', 'PermissionController@store')->name('permisos.create');
+// Route::post('/dashboard/permission/update', 'PermissionController@update')->name('permisos.update');
+// Route::get('/dashboard/permission/destroy/{id}','PermissionController@destroy')->name('permisos.destroy');
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', Profile::class)->name('profile');
     Route::get('/profile-example', ProfileExample::class)->name('profile-example');
-    Route::get('/users', Users::class)->name('users');
+    Route::get('/userdos', UsersDos::class)->name('usersdos');
     Route::get('/login-example', LoginExample::class)->name('login-example');
     Route::get('/register-example', RegisterExample::class)->name('register-example');
     Route::get('/forgot-password-example', ForgotPasswordExample::class)->name('forgot-password-example');
@@ -68,9 +89,14 @@ Route::middleware('auth')->group(function () {
     Route::get('/forms', Forms::class)->name('forms');
     Route::get('/modals', Modals::class)->name('modals');
     Route::get('/typography', Typography::class)->name('typography');
+    
     Route::get('/logout',function(){
         auth()->logout();
         return redirect('/login');
-
+        
     });
+    //permisos
+    Route::get('/permission', Permission::class)->name('permisos.index');
+    Route::get('/roles', Roles::class)->name('roles.index');
+    Route::get('/users', Users::class)->name('user.index');
 });

@@ -66,9 +66,14 @@
         </span>
         <div class="multi-level collapse" role="list" id="submenu-laravel" aria-expanded="false">
           <ul class="flex-column nav">
-            <li class="nav-item {{ Request::segment(1) == 'profile' ? 'active' : '' }}">
-              <a href="/profile" class="nav-link">
+            <li class="nav-item {{ Request::segment(1) == 'roles' ? 'active' : '' }}">
+              <a href="/roles" class="nav-link">
                 <span class="sidebar-text">Roles</span>
+              </a>
+            </li>
+            <li class="nav-item {{ Request::segment(1) == 'permission' ? 'active' : '' }}">
+              <a href="/permission" class="nav-link">
+                <span class="sidebar-text">Permisos</span>
               </a>
             </li>
             <li class="nav-item {{ Request::segment(1) == 'users' ? 'active' : '' }}">

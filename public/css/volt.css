@@ -3996,12 +3996,12 @@ textarea.form-control-lg {
     background-color: transparent; }
 
 .btn-outline-secondary {
-  color: #fb503b;
-  border-color: #fb503b; }
+  color: #6c757d;
+  border-color: #6c757d; }
   .btn-outline-secondary:hover {
-    color: #ffffff;
-    background-color: #fb503b;
-    border-color: #fb503b; }
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d; }
   .btn-check:focus + .btn-outline-secondary, .btn-outline-secondary:focus {
     box-shadow: 0 0 0 0.18rem rgba(251, 80, 59, 0.5); }
   .btn-check:checked + .btn-outline-secondary,
@@ -18269,12 +18269,14 @@ label {
 
 .dataTable-top,
 .dataTable-bottom {
-  display: flex;
+  display: inherit;
   width: 100%;
   justify-content: space-between; }
   @media (max-width: 767.98px) {
+
     .dataTable-top,
     .dataTable-bottom {
+      display: flex;
       flex-direction: column; }
       .dataTable-top .dataTable-info,
       .dataTable-bottom .dataTable-info {
@@ -18984,6 +18986,17 @@ article .h1, article .h2, article .h3, article .h4, article .h5, article .h6 {
 
 .input-group-text {
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.07); }
+
+  .input-group > .select2-container--bootstrap {
+    width: auto;
+    flex: 1 1 auto;
+  }
+  
+  .input-group > .select2-container--bootstrap .select2-selection--single {
+    height: 100%;
+    line-height: inherit;
+    padding: 0.5rem 1rem;
+  }
 
 .form-select .form-select-lg {
   padding: 0.5rem 2rem 0.5rem 1rem; }
