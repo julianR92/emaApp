@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PruebaController;
 use App\Http\Livewire\BootstrapTables;
 use App\Http\Livewire\Components\Buttons;
 use App\Http\Livewire\Components\Forms;
@@ -89,6 +90,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/forms', Forms::class)->name('forms');
     Route::get('/modals', Modals::class)->name('modals');
     Route::get('/typography', Typography::class)->name('typography');
+    Route::get('/prueba',[PruebaController::class,'index'])->name('prueba');
     
     Route::get('/logout',function(){
         auth()->logout();

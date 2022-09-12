@@ -2,6 +2,8 @@
 const doc = document;
 doc.addEventListener("DOMContentLoaded",function(e){
 
+    alert('asadasd')
+
     Livewire.on('toast', function(e) {
         let myModalEl = document.getElementById('modalSignIn');
         let modal = bootstrap.Modal.getInstance(myModalEl)

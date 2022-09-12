@@ -2,7 +2,7 @@
 
 
     @if(in_array(request()->route()->getName(), ['dashboard', 'profile', 'profile-example', 'usersdos', 'bootstrap-tables', 'transactions',
-    'buttons','permisos.index','roles.index','user.index','forms', 'modals', 'notifications', 'typography', 'upgrade-to-pro']))
+    'buttons','permisos.index','roles.index','user.index','forms', 'modals', 'notifications', 'typography', 'upgrade-to-pro','prueba']))
 
     {{-- Nav --}}
     @include('layouts.nav')
