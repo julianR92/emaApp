@@ -84,6 +84,40 @@
           </ul>
         </div>
       </li>
+      <li class="nav-item">
+        <span class="nav-link collapsed d-flex justify-content-between align-items-center collapsed" data-bs-toggle="collapse"
+          data-bs-target="#submenu-laravel2" aria-expanded="false">
+          <span>
+            <span class="sidebar-icon"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M17.875 21.425L11.1 14.6q-.5.2-1.012.3Q9.575 15 9 15q-2.5 0-4.25-1.75T3 9q0-.9.25-1.713q.25-.812.7-1.537L7.6 9.4l1.8-1.8l-3.65-3.65q.725-.45 1.537-.7Q8.1 3 9 3q2.5 0 4.25 1.75T15 9q0 .575-.1 1.087q-.1.513-.3 1.013l6.825 6.775Z"/></svg></span>
+            <span class="sidebar-text">Configuracion</span>
+          </span>
+          <span class="link-arrow"><svg class="icon icon-sm" fill="currentColor" viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd"
+                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                clip-rule="evenodd"></path>
+            </svg></span>
+        </span>
+        <div class="multi-level collapse" role="list" id="submenu-laravel2" aria-expanded="false">
+          <ul class="flex-column nav">
+            <li class="nav-item {{ Request::segment(1) == 'areas' ? 'active' : '' }}">
+              <a href="/areas" class="nav-link">
+                <span class="sidebar-text">Areas</span>
+              </a>
+            </li>
+            <li class="nav-item {{ Request::segment(1) == 'procesos' ? 'active' : '' }}">
+              <a href="/procesos" class="nav-link">
+                <span class="sidebar-text">Procesos</span>
+              </a>
+            </li>
+            {{-- <li class="nav-item {{ Request::segment(1) == 'users' ? 'active' : '' }}">
+              <a href="/users" class="nav-link">
+                <span class="sidebar-text">Admin Usuarios</span>
+              </a>
+            </li> --}}
+          </ul>
+        </div>
+      </li>
       {{-- <li class="nav-item">
         <a href="https://themesberg.com/product/laravel/volt-pro-admin-dashboard-template" target="_blank" class="nav-link d-flex justify-content-between">
           <span>

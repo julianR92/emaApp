@@ -29,6 +29,8 @@ use App\Http\Livewire\UsersDos;
 use App\Http\Livewire\Permission;
 use App\Http\Livewire\Roles\Roles;
 use App\Http\Livewire\Users\Users;
+use App\Http\Livewire\Areas\Areas;
+use App\Http\Livewire\Procesos\Procesos;
 
 /*
 |--------------------------------------------------------------------------
@@ -101,4 +103,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/permission', Permission::class)->name('permisos.index');
     Route::get('/roles', Roles::class)->name('roles.index');
     Route::get('/users', Users::class)->name('user.index');
+    //configuracion
+    Route::get('/areas', Areas::class)->name('areas.index');
+    Route::get('/procesos', Procesos::class)->name('procesos.index');
 });

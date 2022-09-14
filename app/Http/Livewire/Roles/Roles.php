@@ -48,6 +48,8 @@ class Roles extends Component
         $this->rol = '';
         $this->reset('permisos');
         $this->reset('idRol');
+        $this->resetErrorBag();
+        $this->resetValidation();
         $this->dispatchBrowserEvent('cleanData');
     }
 
@@ -93,6 +95,8 @@ class Roles extends Component
             $this->dispatchBrowserEvent('cleanData');
             $this->reset('permisos');
             $this->reset('rol');
+            $this->resetErrorBag();
+            $this->resetValidation();
             $this->emitTo('permisos-table', 'updateTable');
             $this->emit('toast', ['title' => 'Proceso exitoso!', 'text' => 'Rol Actualizado','icon'=>'success']);
 
@@ -115,6 +119,8 @@ class Roles extends Component
         $this->dispatchBrowserEvent('cleanData');
         $this->reset('permisos');
         $this->reset('rol');
+        $this->resetErrorBag();
+        $this->resetValidation();
         $this->emitTo('permisos-table', 'updateTable');
         $this->emit('toast', ['title' => 'Proceso exitoso!', 'text' => 'Rol Creado','icon'=>'success']);
         }         

@@ -47,7 +47,7 @@ class Users extends Component
         return [
             'first_name' => 'required|max:10|regex:/^[a-zA-ZáéíóúàèìòùÀÈÌÒÙÁÉÍÓÚñÑüÜ ]{3,20}$/',
             'last_name' => 'required|max:10|regex:/^[a-zA-ZáéíóúàèìòùÀÈÌÒÙÁÉÍÓÚñÑüÜ ]{3,20}$/',
-            'email' => ['required','max:80', 'email', Rule::unique('users', 'email')->ignore($this->idUser), 'regex:/^[a-zA-Z0-9\._-]+@[a-zA-Z0-9-]{2,}[.][a-zA-Z0-9\.]{2,12}$/'],
+            'email' => ['required','max:80', 'email', Rule::unique('users', 'email')->ignore($this->idUser)->whereNull('deleted_at'), 'regex:/^[a-zA-Z0-9\._-]+@[a-zA-Z0-9-]{2,}[.][a-zA-Z0-9\.]{2,12}$/'],
             'number' => 'required|digits_between:7,10',
             'roles'=>['required']
             

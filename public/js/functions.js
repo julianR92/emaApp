@@ -2,9 +2,7 @@
 const doc = document;
 doc.addEventListener("DOMContentLoaded",function(e){
 
-    alert('asadasd')
-
-    Livewire.on('toast', function(e) {
+      Livewire.on('toast', function(e) {
         let myModalEl = document.getElementById('modalSignIn');
         let modal = bootstrap.Modal.getInstance(myModalEl)
         modal.hide();
@@ -60,6 +58,12 @@ doc.addEventListener("DOMContentLoaded",function(e){
         }
         if(e.target.matches('.btn-modal3')|| e.target.matches('.btn-cerrar2')){
             Livewire.emitTo('users.users', 'limpiarCampos');
+        }
+        if(e.target.matches('.btn-modal4')|| e.target.matches('.btn-cerrar4')){
+            Livewire.emitTo('areas.areas', 'limpiarCampos');
+        }
+        if(e.target.matches('.btn-modal5')|| e.target.matches('.btn-cerrar5')){
+            Livewire.emitTo('procesos.procesos', 'limpiarCampos');
         }
 
     })
