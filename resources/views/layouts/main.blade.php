@@ -17,8 +17,7 @@
     <!-- Datepicker -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.1.4/dist/css/datepicker.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.1.4/dist/css/datepicker-bs4.min.css">
-    {{-- Datatables --}}
-    
+    {{-- Datatables --}}    
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" type="text/css">
    
     <!-- Fontawesome -->
@@ -74,18 +73,23 @@
 
     <!-- Notyf -->
     <script src="/vendor/notyf/notyf.min.js"></script>
-
+    {{-- pristine --}}
+    <script src="/assets/pristineJS/dist/pristine.min.js"></script>
     <!-- Simplebar -->
     <script src="/assets/js/simplebar.min.js"></script>
 
     <!-- Github buttons -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+     {{-- axios --}}
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     
     <!-- Volt JS -->
     <script src="/assets/js/volt.js"></script>
     <!-- personal JS -->
+    
    
     <script src="/js/functions.js"></script>
+    
 
    
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous" wire:ignore></script>
@@ -102,7 +106,7 @@
 
 <body>
     @if(in_array(request()->route()->getName(), ['dashboard', 'profile', 'profile-example', 'usersdos', 'bootstrap-tables', 'transactions',
-    'buttons','permisos.index','roles.index','user.index','forms', 'modals', 'notifications', 'typography', 'upgrade-to-pro','prueba']))
+    'buttons','permisos.index','roles.index','user.index','eje.index','forms', 'modals', 'notifications', 'typography', 'upgrade-to-pro','prueba']))
 
     {{-- Nav --}}
     @include('layouts.nav')

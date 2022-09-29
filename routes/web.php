@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EjeController;
 use App\Http\Controllers\PruebaController;
 use App\Http\Livewire\BootstrapTables;
 use App\Http\Livewire\Components\Buttons;
@@ -106,4 +107,9 @@ Route::middleware('auth')->group(function () {
     //configuracion
     Route::get('/areas', Areas::class)->name('areas.index');
     Route::get('/procesos', Procesos::class)->name('procesos.index');
+    Route::get('/ejes',[EjeController::class, 'index'])->name('eje.index');
+    // Route::get('/listarEjes',[EjeController::class, 'listarEjes'])->name('eje.listar');
+    Route::get('/edit/eje/{id}',[EjeController::class, 'edit'])->name('eje.editar');
+    Route::delete('/delete/eje/{id}',[EjeController::class, 'delete'])->name('eje.delete');
+    Route::post('/ejes',[EjeController::class, 'store'])->name('eje.store');
 });

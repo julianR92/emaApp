@@ -147,9 +147,11 @@ document.getElementById('notifyBottomRight').addEventListener('click', function 
                     tagName: 'span',
                     color: '#fff'
                 },
-                dismissible: false
+                dismissible: false,
+                duration: 8000,
             }
-        ]
+        ],
+       
     });
     notyf.open({
         type: 'info',

@@ -11,4 +11,9 @@ class Proceso extends Model
     use HasFactory, SoftDeletes;
     protected $table = 'procesos';
     protected $primaryKey = 'id';
+     
+    public function eje()
+    {
+        return $this->belongsTo(Eje::class);
+    }
 }
