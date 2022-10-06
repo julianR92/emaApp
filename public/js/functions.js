@@ -1,25 +1,24 @@
-// DATATABLES
+import {initTable,getData,notifications,notyfError} from './general.js';
+
 const doc = document;
 doc.addEventListener("DOMContentLoaded",function(e){
-
-      Livewire.on('toast', function(e) {
-        let myModalEl = document.getElementById('modalSignIn');
-        let modal = bootstrap.Modal.getInstance(myModalEl)
-        modal.hide();
-        Swal.fire({
-            title: e.title,
-            text: e.text,
-            icon: e.icon,
-            toast:true,
-            timer: 7000,                        
-            showConfirmButton: false,
-            timerProgressBar: true,
-            position: 'top-right',
+   Livewire.on('toast', function(e) {
+      let myModalEl = document.getElementById('modalSignIn');
+      let modal = bootstrap.Modal.getInstance(myModalEl)
+      modal.hide();
+      Swal.fire({
+         title: e.title,
+         text: e.text,
+         icon: e.icon,
+         toast:true,
+         timer: 7000,                        
+         showConfirmButton: false,
+         timerProgressBar: true,
+         position: 'top-right',
             
-        });
-       
-        
-    })  
+      });
+});
+
 
     Livewire.on('toast-info', function(e) {
         
@@ -37,8 +36,6 @@ doc.addEventListener("DOMContentLoaded",function(e){
        
         
     }) 
-
-    //
 
     doc.addEventListener('edit-modal', event =>{
       
@@ -106,113 +103,32 @@ doc.addEventListener("DOMContentLoaded",function(e){
     }) 
 
 
-
-    let dataTable = new simpleDatatables.DataTable("#myTable", {
-        searchable: true,
-        fixedHeight: true,
-        paging: true
-    
-    })
-
-    
-
-    // let $fragment = document.createDocumentFragment();
-    // let $tbody = document.getElementById('tbodyEje');
-    // async function listDataEjes (){
-    //     dataTable.destroy();
-    //     try {
-    //     let res = await  axios.get('/listarEjes'),
-    //       json = await res.data;
-          
-    //       json.data.forEach((el)=>{            
-    //         const $tr = document.createElement('tr');
-    //         $tr.innerHTML = `<td>${el.id}</td> 
-    //                          <td>${el.descripcion}</td>
-    //                          <td>${el.proceso}</td> 
-    //                          <td>
-    //                          <button type="button" class="btn btn-success d-inline-flex align-items-center">
-    //                              <svg width="16" height="16" viewBox="0 0 24 24"><path fill="currentColor" d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a.996.996 0 0 0 0-1.41l-2.34-2.34a.996.996 0 0 0-1.41 0l-1.83 1.83l3.75 3.75l1.83-1.83z"/></svg>Editar</button>
-                         
-    //                          <button type="button" class="btn btn-danger d-inline-flex align-items-center">
-    //                              <svg width="16" height="16" viewBox="0 0 24 24"><path fill="currentColor" d="M9 3v1H4v2h1v13a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6h1V4h-5V3H9M7 6h10v13H7V6m2 2v9h2V8H9m4 0v9h2V8h-2Z"/></svg>Eliminar</button>
-    //                          </td>`;
-           
-    //         $fragment.appendChild($tr);
-    //     })
-        
-    //     $tbody.appendChild($fragment);
-    //     let dataTable = new simpleDatatables.DataTable("#myTable", {
-    //     searchable: true,
-    //     fixedHeight: true,
-    //     paging: true
-    
-    // })
-        
-            
-    //    }catch(err){
-    //     // console.log(err.response);
-    //     // let message = err.response.statusText || "Ocurrio un Error";
-    //     // $tbody.innerHTML = `Error ${err.response.status}: ${message}`;
-    //    }finally{
-            
-    //    }
-
-    // }
-
-    // if(e.target.location.pathname=='/ejes'){
-    //     listDataEjes()
-    // }
-    
-   
-
-    //function loop form
-
-    function getData(form) {
-        var formData = new FormData(form);
-      
-        for (var pair of formData.entries()) {
-        //   console.log(pair[0] + ": " + pair[1]);
-        }
-      
-        let data =Object.fromEntries(formData);
-        return data;
+      let  dataTable = $('#myTable');
+      let columnas=[
+         {
+            field:"id",
+            align: 'left'
+         },
+         {
+            field:"descripcion",
+            align: 'left'
+         },
+         {
+            field:"proceso",
+            align: 'left'
+         },
+         {
+            formatter: botones
+         },
+      ];
+     
+      function botones(value, row, index) {
+         return [
+         '<button type="button" class="btn btn-success d-inline-flex align-items-center editarEje mx-1" data-id="'+row.id+'"><svg width="16" height="16" viewBox="0 0 24 24"><path fill="currentColor" d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a.996.996 0 0 0 0-1.41l-2.34-2.34a.996.996 0 0 0-1.41 0l-1.83 1.83l3.75 3.75l1.83-1.83z"/></svg>Editar</button> ',
+         '<button type="button" class="btn btn-danger d-inline-flex align-items-center eliminarEje" data-id="'+row.id+'"><svg width="16" height="16" viewBox="0 0 24 24"><path fill="currentColor" d="M9 3v1H4v2h1v13a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6h1V4h-5V3H9M7 6h10v13H7V6m2 2v9h2V8H9m4 0v9h2V8h-2Z"/></svg>Eliminar</button>'
+         ].join('')
       }
-
-      function notifications (titulo,texto,icono) {
-
-        Swal.fire({
-            title: titulo,
-            text: texto,
-            icon: icono,
-            toast:true,
-            timer: 2000,                        
-            showConfirmButton: false,
-            timerProgressBar: true,
-            position: 'top-right',
-            
-        });
-      }
-
-      //errors notfy
-      const notyf = new Notyf({
-        position: {
-            x: 'right',
-            y: 'top',
-        },
-        types: [
-            {
-                type: 'error',
-                background: '#FA5252',
-                icon: {
-                    className: 'fas fa-times',
-                    tagName: 'span',
-                    color: '#fff'
-                },
-                dismissible: false,
-                
-            }
-        ]
-    });
+  
     
     let $formEje = d.getElementById('myEjeForm');
     let pristine = new Pristine($formEje);     
@@ -230,32 +146,24 @@ doc.addEventListener("DOMContentLoaded",function(e){
                     $formEje.reset();
                     notifications('Proceso exitoso!',response.data.message,'success'); 
                     setTimeout(()=>{
-                     location.reload();
+                     initTable(dataTable,columnas,response.data.datos);
                     },2000)
 
-                    
                                     
                 }else{                    
-                    $divNotificaciones = document.createElement("div");
-                    $ul = document.createElement("ul");
+                   console.log(response.data)
                     response.data.errors.forEach((el)=>{
-                        notyf.open({
+                        notyfError.open({
                             type: 'error',
                             message: el,
                             duration: 8000,
                         });
-                        
                     })                
-                 
                 }
-
             }).catch(function(error){
                 console.log(error.response);
             });
         }
-
-    
-    
     }) 
     
     document.addEventListener('click', (e)=>{
@@ -277,6 +185,7 @@ doc.addEventListener("DOMContentLoaded",function(e){
 
         })
       }
+
       if(e.target.matches('.eliminarEje')){
         console.log(e.target.dataset.id);
         Swal.fire({
@@ -311,15 +220,5 @@ doc.addEventListener("DOMContentLoaded",function(e){
         document.querySelector('.btnModal').textContent = 'Crear';
       }
 
-    });
-       
-  
+    });      
 });
-
-
-
-
-
-
-
-

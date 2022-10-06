@@ -13,12 +13,17 @@ class EjeController extends Controller
 {
     public function index(){
     
-     $ejes = Eje::select('eje.id', 'eje.descripcion', 'eje.proceso_id','procesos.name as proceso')->join('procesos','procesos.id','=','eje.proceso_id')->orderBy('eje.id', 'desc')->get();
+     $ejes =$this->cargarDatos();
      $procesos = Proceso::all();
      
   
      return view('livewire.ejes.index',compact('procesos','ejes'));
      
+    }
+
+    private function cargarDatos(){
+      return Eje::select('eje.id', 'eje.descripcion', 'eje.proceso_id','procesos.name as proceso')->join('procesos','procesos.id','=','eje.proceso_id')->orderBy('eje.id', 'desc')->get();
+
     }
 
    public function store(Request $request){ 
@@ -30,7 +35,7 @@ class EjeController extends Controller
 
     if($validator->fails()){
         //devuelve errores a la vista
-     return response()->json(['errors'=>$validator->errors()->all()]);
+     return response()->json([ 'success'=>false,'errors'=>$validator->errors()->all()]);
     }
 
     if(!$request->id){
@@ -45,7 +50,9 @@ class EjeController extends Controller
                 'direccion_ip'=> $_SERVER['REMOTE_ADDR'],           
     
             ]);
-               return response()->json(['success'=>true,'message'=>'Eje Creado']);   
+            
+            $datos =$this->cargarDatos();
+            return response()->json(['success'=>true,'message'=>'Eje Creado','datos'=>$datos]);   
 
          }
     }else{
@@ -60,7 +67,8 @@ class EjeController extends Controller
                 'direccion_ip'=> $_SERVER['REMOTE_ADDR'],           
     
             ]);
-               return response()->json(['success'=>true,'message'=>'Eje Actualizado']);   
+               $datos  =$this->cargarDatos();
+               return response()->json(['success'=>true,'message'=>'Eje Actualizado','datos'=>$datos]);   
 
          }
 

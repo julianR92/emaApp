@@ -34,12 +34,12 @@
     <div class="card border-0 shadow mb-4">
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-centered table-nowrap mb-0 rounded" id="myTable">
+                <table class="table table-centered table-nowrap mb-0 rounded" id="myTable" data-toggle="table" data-search="true" data-pagination="true" data-page-size="5" >
                     <thead class="thead-light">
                         <tr>
-                            <th class="border-0 rounded-start">#</th>
-                            <th class="border-0">Descripción</th>
-                            <th class="border-0">Proceso</th>
+                            <th data-field="id" data-sortable="true" class="border-0 rounded-start">#</th>
+                            <th data-field="descripcion" class="border-0">Descripción</th>
+                            <th data-field="proceso" class="border-0">Proceso</th>
                             <th class="border-0">Acciones</th>
                            
                         </tr>

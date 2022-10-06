@@ -34,6 +34,10 @@
     <link type="text/css" href="/css/spinner.css" rel="stylesheet">
     <link type="text/css" href="/css/app.css" rel="stylesheet">
 
+
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.21.1/dist/bootstrap-table.min.css">
+
+
     @livewireStyles
 
     @livewireScripts
@@ -88,7 +92,7 @@
     <!-- personal JS -->
     
    
-    <script src="/js/functions.js"></script>
+    <script src="/js/functions.js" type="module"></script>
     
 
    
@@ -100,7 +104,8 @@
 
     <title>{{ config('app.name') }}</title>
 
-  
+  <script src="https://unpkg.com/bootstrap-table@1.21.1/dist/bootstrap-table.min.js"></script>
+
 
 </head>
 

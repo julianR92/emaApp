@@ -34,6 +34,7 @@
     <link type="text/css" href="/css/volt.css" rel="stylesheet">
     <link type="text/css" href="/css/spinner.css" rel="stylesheet">
     <link type="text/css" href="/css/app.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.21.1/dist/bootstrap-table.min.css">
 
     @livewireStyles
 
@@ -85,7 +86,7 @@
     <script src="/assets/js/volt.js"></script>
     <!-- personal JS -->
    
-    <script src="/js/functions.js"></script>
+    <script src="/js/functions.js" type="module"></script>
 
    
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous" wire:ignore></script>
@@ -95,6 +96,7 @@
 
 
     <title>{{ config('app.name') }}</title>
+<script src="https://unpkg.com/bootstrap-table@1.21.1/dist/bootstrap-table.min.js"></script>
 
   
 
