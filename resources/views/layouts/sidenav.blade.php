@@ -115,6 +115,11 @@
                 <span class="sidebar-text">Ejes</span>
               </a>
             </li>
+            <li class="nav-item {{ Request::segment(1) == 'programas' ? 'active' : '' }}">
+              <a href="/programas" class="nav-link">
+                <span class="sidebar-text">Programas</span>
+              </a>
+            </li>
             {{-- <li class="nav-item {{ Request::segment(1) == 'users' ? 'active' : '' }}">
               <a href="/users" class="nav-link">
                 <span class="sidebar-text">Admin Usuarios</span>

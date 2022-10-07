@@ -85,7 +85,7 @@
     <!-- Github buttons -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
      {{-- axios --}}
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.0.0/axios.min.js" integrity="sha512-26uCxGyoPL1nESYXHQ+KUmm3Maml7MEQNWU8hIt1hJaZa5KQAQ5ehBqK6eydcCOh6YAuZjV3augxu/5tY4fsgQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     
     <!-- Volt JS -->
     <script src="/assets/js/volt.js"></script>
@@ -93,6 +93,7 @@
     
    
     <script src="/js/functions.js" type="module"></script>
+    <script src="/js/programas.js" type="module"></script>
     
 
    
@@ -111,7 +112,7 @@
 
 <body>
     @if(in_array(request()->route()->getName(), ['dashboard', 'profile', 'profile-example', 'usersdos', 'bootstrap-tables', 'transactions',
-    'buttons','permisos.index','roles.index','user.index','eje.index','forms', 'modals', 'notifications', 'typography', 'upgrade-to-pro','prueba']))
+    'buttons','permisos.index','roles.index','user.index','eje.index', 'areas.index','procesos.index','programas.index','programas.areas','forms', 'modals', 'notifications', 'typography', 'upgrade-to-pro','prueba']))
 
     {{-- Nav --}}
     @include('layouts.nav')

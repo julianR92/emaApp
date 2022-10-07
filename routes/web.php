@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\EjeController;
+use App\Http\Controllers\ProgramaController;
 use App\Http\Controllers\PruebaController;
 use App\Http\Livewire\BootstrapTables;
 use App\Http\Livewire\Components\Buttons;
@@ -112,4 +113,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/edit/eje/{id}',[EjeController::class, 'edit'])->name('eje.editar');
     Route::delete('/delete/eje/{id}',[EjeController::class, 'delete'])->name('eje.delete');
     Route::post('/ejes',[EjeController::class, 'store'])->name('eje.store');
+
+    //PROGRAMAS::
+    Route::get('/programas',[ProgramaController::class, 'index'])->name('programas.index');
+    Route::get('/programas/{id}',[ProgramaController::class, 'areaProgramas'])->name('programas.areas');
+    Route::get('/programa/proceso/{id}',[ProgramaController::class, 'programaProceso'])->name('programas.proceso');
+    Route::post('/programas',[ProgramaController::class, 'store'])->name('programas.store');
+    Route::get('/edit/programa/{id}',[ProgramaController::class, 'edit'])->name('programas.editar');
+    Route::get('/activate/programa/{id}',[ProgramaController::class, 'changeState'])->name('programas.estado');
+    Route::delete('/delete/programa/{id}',[ProgramaController::class, 'delete'])->name('programas.delete');
 });
