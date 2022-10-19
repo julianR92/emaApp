@@ -1,4 +1,5 @@
 @extends('layouts.main')
+<script src="/js/programas.js" type="module"></script>
 
 @section('content')
 
@@ -14,8 +15,8 @@
                         <svg class="icon icon-xxs" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
                     </a>
                 </li>
-                <li class="breadcrumb-item"><a href="#">Configuracion</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Programa</li>
+                <li class="breadcrumb-item"><a href="/programas">Programas</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{{$area->name}}</li>
             </ol>
         </nav>
         <div class="d-flex justify-content-between w-100 flex-wrap">
@@ -78,6 +79,15 @@
                 </table>
             </div>
         </div>
+    </div>
+    <div class="row">
+        <div class="d-flex justify-content-end">
+            <div class="col-md-2 pr-4"> 
+                            
+                    <a href="/programas" class="text-info me-3 float-end"><svg width="16" height="16" viewBox="0 0 24 24"><path fill="currentColor" d="M3.97 12c0 4.41 3.62 8.03 8.03 8.03c4.41 0 8.03-3.62 8.03-8.03c0-4.41-3.62-8.03-8.03-8.03c-4.41 0-8.03 3.62-8.03 8.03M2 12C2 6.46 6.46 2 12 2s10 4.46 10 10s-4.46 10-10 10S2 17.54 2 12m8.46-1V8L6.5 12l3.96 4v-3h7.04v-2"/></svg>Atras</a></div>
+        </div>
+        
+
     </div>
     {{-- MODAL --}}
     <div class="modal fade" id="modalSignIn" tabindex="-1" role="dialog" aria-hidden="true">

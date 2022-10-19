@@ -90,10 +90,15 @@
     <!-- Volt JS -->
     <script src="/assets/js/volt.js"></script>
     <!-- personal JS -->
+
+    <script>        
+          window.permission =  '<?php echo json_encode(Auth::user()->allPermissions, true) ?>';     
+    </script>
     
    
     <script src="/js/functions.js" type="module"></script>
     <script src="/js/programas.js" type="module"></script>
+    <script src="/js/mallas.js" type="module"></script>
     
 
    
@@ -112,7 +117,7 @@
 
 <body>
     @if(in_array(request()->route()->getName(), ['dashboard', 'profile', 'profile-example', 'usersdos', 'bootstrap-tables', 'transactions',
-    'buttons','permisos.index','roles.index','user.index','eje.index', 'areas.index','procesos.index','programas.index','programas.areas','forms', 'modals', 'notifications', 'typography', 'upgrade-to-pro','prueba']))
+    'buttons','permisos.index','roles.index', 'mallas.index','mallas.areas','user.index','eje.index', 'areas.index','procesos.index','programas.index','programas.areas','forms', 'modals', 'notifications', 'typography', 'upgrade-to-pro','prueba']))
 
     {{-- Nav --}}
     @include('layouts.nav')
@@ -139,8 +144,8 @@
     @yield('content')
 
     @endif
-
-  
+    @php var_dump(Auth::user()->getAllPermissionsAttribute()); @endphp
+    
 
 </body>
 

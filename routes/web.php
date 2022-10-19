@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\EjeController;
+use App\Http\Controllers\MallaController;
 use App\Http\Controllers\ProgramaController;
 use App\Http\Controllers\PruebaController;
 use App\Http\Livewire\BootstrapTables;
@@ -122,4 +123,14 @@ Route::middleware('auth')->group(function () {
     Route::get('/edit/programa/{id}',[ProgramaController::class, 'edit'])->name('programas.editar');
     Route::get('/activate/programa/{id}',[ProgramaController::class, 'changeState'])->name('programas.estado');
     Route::delete('/delete/programa/{id}',[ProgramaController::class, 'delete'])->name('programas.delete');
+
+    //mallas
+    Route::get('/mallas',[MallaController::class, 'index'])->name('mallas.index');
+    Route::get('/mallas/{id}',[MallaController::class, 'areaMallas'])->name('mallas.areas');
+    Route::get('/mallas/colectivos/{id}',[MallaController::class, 'mallaColectivos'])->name('mallas.colectivos');
+    Route::get('/mallas/asignaturas/{id}/{area_id}',[MallaController::class, 'mallaAsignaturas'])->name('mallas.asignaturas');
+    Route::post('/mallas',[MallaController::class, 'store'])->name('mallas.store');
+    Route::get('/edit/malla/{id}',[MallaController::class, 'edit'])->name('mallas.editar');
+    Route::delete('/delete/malla/{id}',[MallaController::class, 'delete'])->name('mallas.delete');
+
 });
