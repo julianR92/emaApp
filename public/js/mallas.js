@@ -1,8 +1,8 @@
 import {initTable,getData,notifications,notyfError} from './general.js';
-const permisos = (window.permission)? JSON.parse(window.permission): null;
+const permisos = (window.permissions) ? JSON.parse(window.permissions): null; 
 const doc = document;
 const $divCuali = document.querySelector('.div-cuali');
-const $input = document.getElementById('cantidad_cualificacion');
+const $input = document.getElementById('numero_cualificacion');
 doc.addEventListener("DOMContentLoaded",function(e){
   
   
@@ -209,7 +209,7 @@ doc.addEventListener("DOMContentLoaded",function(e){
    
     document.addEventListener('change',(e)=>{
         if(e.target.matches('#cualificacion')){
-            if(e.target.value == 'SEMESTRE'|| e.target.value=='CICLO'){
+            if(e.target.value == 'SEMESTRE'||e.target.value=='CICLO'){
                  $divCuali.classList.remove('d-none');   
                  $input.setAttribute ('required',true);               
                  $input.setAttribute('data-pristine-required-message', 'Campo Requerido')                

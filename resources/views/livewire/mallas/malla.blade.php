@@ -1,4 +1,3 @@
-
 @extends('layouts.main')
 
 @section('content')
@@ -95,7 +94,7 @@
         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header border-0">
-                    <button type="button" class="btn-close btn-cerrar13" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close btn-cerrar8" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body px-md-5">
                     <h2 class="h4 text-center titulo-mal">Crear Malla</h2>
@@ -215,6 +214,8 @@
 </div>
 </div>
 
-
+@push('mallas-js')
+<script src="{{asset('js/mallas.js')}}" type="module"></script>
+@endpush
 
 @endsection

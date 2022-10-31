@@ -11,12 +11,6 @@ use Illuminate\Support\Facades\Validator;
 
 class EjeController extends Controller
 {
-  function __construct()
-  {
-      $this->middleware('permission:control-total', ['only' => ['delete']]);
-      
-  }
-       
     public function index(){
     
      $ejes =$this->cargarDatos();

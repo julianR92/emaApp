@@ -1,5 +1,5 @@
 import {initTable,getData,notifications,notyfError} from './general.js';
-
+const permisos = (window.permissions) ? JSON.parse(window.permissions): null; 
 const doc = document;
 doc.addEventListener("DOMContentLoaded",function(e){
   
@@ -34,10 +34,16 @@ doc.addEventListener("DOMContentLoaded",function(e){
       ];
      
       function botones(value, row, index) {
+        if(permisos.includes('control-total')){   
          return [
          '<button type="button" class="btn btn-success d-inline-flex align-items-center editarPrograma mx-1" data-id="'+row.id+'"><svg width="16" height="16" viewBox="0 0 24 24"><path fill="currentColor" d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a.996.996 0 0 0 0-1.41l-2.34-2.34a.996.996 0 0 0-1.41 0l-1.83 1.83l3.75 3.75l1.83-1.83z"/></svg>Editar</button> ',
          '<button type="button" class="btn btn-danger d-inline-flex align-items-center eliminarPrograma" data-id="'+row.id+'"><svg width="16" height="16" viewBox="0 0 24 24"><path fill="currentColor" d="M9 3v1H4v2h1v13a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6h1V4h-5V3H9M7 6h10v13H7V6m2 2v9h2V8H9m4 0v9h2V8h-2Z"/></svg>Eliminar</button>'
          ].join('')
+        }else{
+            return [
+                '<button type="button" class="btn btn-success d-inline-flex align-items-center editarPrograma mx-1" data-id="'+row.id+'"><svg width="16" height="16" viewBox="0 0 24 24"><path fill="currentColor" d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a.996.996 0 0 0 0-1.41l-2.34-2.34a.996.996 0 0 0-1.41 0l-1.83 1.83l3.75 3.75l1.83-1.83z"/></svg>Editar</button> ',
+            ].join('')
+        }
       }
       function estado(value, row, index) {
         
@@ -102,6 +108,7 @@ doc.addEventListener("DOMContentLoaded",function(e){
               document.querySelector('.btnModal-pro').textContent = 'Editar';
               document.getElementById('programa').value = response.data.data[0].programa;
               document.getElementById('eje_id').value = response.data.data[0].eje_id;
+              document.getElementById('duracion_programa').value = response.data.data[0].duracion_programa;
               document.getElementById('proceso').value = response.data.data[0].proceso;
               document.getElementById('proceso_id').value = response.data.data[0].proceso_id;
               document.getElementById('idPrograma').value = response.data.data[0].id;
@@ -141,6 +148,7 @@ doc.addEventListener("DOMContentLoaded",function(e){
       
       if(e.target.matches('.btn-modal7')|| e.target.matches('.btn-cerrar7')){
         $forPrograma.reset();
+        pristine.reset();
         document.querySelector('.titulo-pro').textContent = 'Crear Programa';
         document.querySelector('.btnModal-pro').textContent = 'Crear';
       }

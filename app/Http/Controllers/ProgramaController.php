@@ -47,6 +47,7 @@ class ProgramaController extends Controller
             'proceso_id' => 'required',
             'area_id' => 'required',
             'eje_id' => 'required',
+            'duracion_programa'=>'required'
         ]);
     
         if($validator->fails()){
@@ -65,6 +66,7 @@ class ProgramaController extends Controller
             $programas->area_id  = $request->area_id;
             $programas->eje_id   = $request->eje_id;
             $programas->programa   = $request->programa;
+            $programas->duracion_programa   = $request->duracion_programa;
             $programas->estado   = 1;
             $programas->vigencia   = env('VIGENCIA_ACTUAL');
              if($programas->save()){
@@ -87,6 +89,7 @@ class ProgramaController extends Controller
             $programas->area_id  = $request->area_id;
             $programas->eje_id   = $request->eje_id;
             $programas->programa   = $request->programa;
+            $programas->duracion_programa   = $request->duracion_programa;
             if($programas->save()){
                 $auditoria = Auditoria::create([
                     'usuario' => auth()->user()->first_name,
@@ -106,9 +109,10 @@ class ProgramaController extends Controller
       }
 
       public function edit($id){
-        $programa = Programa::select(['programas.programa', 'procesos.name as proceso', 'programas.eje_id', 'programas.proceso_id','programas.id', 'programas.area_id'])->join('procesos','procesos.id','=','programas.proceso_id')->where('programas.id', $id)->get();
+        $programa = Programa::select(['programas.programa', 'procesos.name as proceso', 'programas.eje_id', 'programas.proceso_id','programas.id', 'programas.area_id', 'programas.duracion_programa'])->join('procesos','procesos.id','=','programas.proceso_id')->where('programas.id', $id)->get();
         return response()->json(['data' => $programa]);
       }
+
       public function changeState($id){
         $programa = Programa::findOrFail($id);
         if($programa->estado){

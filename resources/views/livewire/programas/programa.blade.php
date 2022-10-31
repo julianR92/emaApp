@@ -1,8 +1,10 @@
 @extends('layouts.main')
-<script src="/js/programas.js" type="module"></script>
 
 @section('content')
 
+<style>
+ 
+</style>
 
 <div>
     {{-- Be like water. --}}
@@ -64,13 +66,14 @@
                                 </button>
                             
                             
-                                @endif</td>
+                            @endif</td>
                             <td>
                             <button type="button" class="btn btn-success d-inline-flex align-items-center editarPrograma" data-id="{{$pro->id}}">
                                 <svg width="16" height="16" viewBox="0 0 24 24"><path fill="currentColor" d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a.996.996 0 0 0 0-1.41l-2.34-2.34a.996.996 0 0 0-1.41 0l-1.83 1.83l3.75 3.75l1.83-1.83z"/></svg>Editar</button>
-                        
+                            @canany(['control-total'])
                             <button type="button" class="btn btn-danger d-inline-flex align-items-center eliminarPrograma" data-id="{{$pro->id}}">
                                 <svg width="16" height="16" viewBox="0 0 24 24"><path fill="currentColor" d="M9 3v1H4v2h1v13a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6h1V4h-5V3H9M7 6h10v13H7V6m2 2v9h2V8H9m4 0v9h2V8h-2Z"/></svg>Eliminar</button>
+                            @endcanany
                             </td>
                          </tr>
                         @endforeach
@@ -82,12 +85,9 @@
     </div>
     <div class="row">
         <div class="d-flex justify-content-end">
-            <div class="col-md-2 pr-4"> 
-                            
+            <div class="col-md-2 pr-4">                             
                     <a href="/programas" class="text-info me-3 float-end"><svg width="16" height="16" viewBox="0 0 24 24"><path fill="currentColor" d="M3.97 12c0 4.41 3.62 8.03 8.03 8.03c4.41 0 8.03-3.62 8.03-8.03c0-4.41-3.62-8.03-8.03-8.03c-4.41 0-8.03 3.62-8.03 8.03M2 12C2 6.46 6.46 2 12 2s10 4.46 10 10s-4.46 10-10 10S2 17.54 2 12m8.46-1V8L6.5 12l3.96 4v-3h7.04v-2"/></svg>Atras</a></div>
-        </div>
-        
-
+            </div>       
     </div>
     {{-- MODAL --}}
     <div class="modal fade" id="modalSignIn" tabindex="-1" role="dialog" aria-hidden="true">
@@ -102,7 +102,7 @@
                     <form action="#" method="POST" id="myProgramForm">
                          
                         
-                        <div class="form-group mb-4">
+                        <div class="form-group mb-2">
                             <label for="permiso">Nombre Programa*</label>
                             <div class="input-group">
                                 <span class="input-group-text border-gray-300" id="basic-addon3">
@@ -113,7 +113,7 @@
                             </div> 
                         </div> 
                         
-                        <div class="form-group mb-4">
+                        <div class="form-group mb-2">
                             <label for="permiso">Eje*</label>
                             <div>
                             <div class="input-group">                                
@@ -127,7 +127,8 @@
                             </div>
                             </div>
                         </div>
-                        <div class="form-group mb-4">
+                       
+                        <div class="form-group mb-2">
                             <label for="permiso">Proceso*</label>
                             <div class="input-group">
                                 <span class="input-group-text border-gray-300" id="basic-addon3">
@@ -136,6 +137,16 @@
                                 <input name="proceso" id="proceso" type="text" class="form-control border-gray-300" required data-pristine-required-message="Campo Requerido" readonly>
                                 @error('proceso') <div class="invalid-feedback"> {{ $message }} </div> @enderror 
                             </div> 
+                            </div>
+
+                            <div class="form-group mb-2">
+                                <label for="duracion_programa">Duracion Semestres/Ciclos/Trimestres*</label>
+                                <div>
+                                <div class="input-group">                                
+                                    <input name="duracion_programa" id="duracion_programa" type="text" class="form-control border-gray-300" data-pristine-type="integer" required data-pristine-required-message="Campo Requerido" placeholder='Ej: 6'>
+                                    @error('duracion_programa') <div class="invalid-feedback"> {{ $message }} </div> @enderror
+                                </div>
+                                </div>
                             </div>
                        
                         <!-- End of Form -->                        
@@ -169,6 +180,9 @@
     </div> --}}
 </div>
 </div>
+@push('programas-js')
+<script src="{{asset('js/programas.js')}}" type="module"></script>
+@endpush
 
 
 

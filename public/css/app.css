@@ -2,38 +2,74 @@
 
 
 
+
+
+
+
 .gov-co-1{
+
     background-color: #3366CC !important;
+
 }
+
+
 
 /* footer */
+
 .page__footer {
+
     padding-bottom: 20px!important;
+
     padding-top: 77px;
+
     margin-top: 1.8%;
+
     background-color: #3366CC !important;
+
     color: white !important;
 
+
+
 }
+
+
 
 .page__footer .container {
+
     width: 100%;
+
     max-width: inherit;
+
     padding-right: 0;
+
     padding-left: 0;
+
 }
+
+
 
 .border-right {
+
     border-right: 1px solid #dee2e6!important;
+
 }
+
+
 
 .page__footer .container .footer-container .nav-footer {
+
     flex-wrap: wrap;
+
     flex-direction: row;
+
 }
 
+
+
 .font-weight-bold {
+
     font-weight: 700!important;
+
 }
 
 .text-help{
@@ -59,14 +95,37 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* query medias */
+
 @media (max-width: 800px) {
+
     .logo-gov-co {
+
         margin-bottom: 100px!important;
+
     }
+
     .navbar-brand img{ height: 28px!important;}
+
     .img-imct{
+
         margin-top:50px!important;
+
         width: 100px!important;
+
     }
+
   }

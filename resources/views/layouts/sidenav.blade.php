@@ -1,139 +1,233 @@
 <nav id="sidebarMenu" class="sidebar d-lg-block bg-gray-800 text-white collapse" data-simplebar>
-  <div class="sidebar-inner px-2 pt-3">
-    <div class="user-card d-flex d-md-none align-items-center justify-content-between justify-content-md-center pb-4">
-      <div class="d-flex align-items-center">
-        <div class="avatar-lg me-4">
-          <img src="https://ui-avatars.com/api/?name={{auth()->user()->first_name}}+{{auth()->user()->last_name}}" class="card-img-top rounded-circle border-white"
-            alt="Bonnie Green">
-        </div>
-        <div class="d-block">
-          <h2 class="h5 mb-3">Hi, {{auth()->user()->first_name }}</h2>
-          <a href="/logout" class="btn btn-secondary btn-sm d-inline-flex align-items-center">
-            <svg class="icon icon-xxs me-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
-            </svg>
-            Desconectar
-          </a>
-        </div>
+   <div class="sidebar-inner px-2 pt-3">
+      <div class="user-card d-flex d-md-none align-items-center justify-content-between justify-content-md-center pb-4">
+         <div class="d-flex align-items-center">
+            <div class="avatar-lg me-4">
+               <img
+                  src="https://ui-avatars.com/api/?name={{ auth()->user()->first_name }}+{{ auth()->user()->last_name }}"
+                  class="card-img-top rounded-circle border-white" alt="Bonnie Green">
+            </div>
+            <div class="d-block">
+               <h2 class="h5 mb-3">Hi, {{ auth()->user()->first_name }}</h2>
+               <a href="/logout" class="btn btn-secondary btn-sm d-inline-flex align-items-center">
+                  <svg class="icon icon-xxs me-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                     xmlns="http://www.w3.org/2000/svg">
+                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1">
+                     </path>
+                  </svg>
+                  Desconectar
+               </a>
+            </div>
+         </div>
+         <div class="collapse-close d-md-none">
+            <a href="#sidebarMenu" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu"
+               aria-expanded="true" aria-label="Toggle navigation">
+               <svg class="icon icon-xs" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd"
+                     d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                     clip-rule="evenodd"></path>
+               </svg>
+            </a>
+         </div>
       </div>
-      <div class="collapse-close d-md-none">
-        <a href="#sidebarMenu" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu"
-          aria-expanded="true" aria-label="Toggle navigation">
-          <svg class="icon icon-xs" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd"
-              d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-              clip-rule="evenodd"></path>
-          </svg>
-        </a>
-      </div>
-    </div>
-    <ul class="nav flex-column pt-3 pt-md-0">
-      <li class="nav-item">
-        <a href="/dashboard" class="nav-link d-flex align-items-center">
-          <span class="sidebar-icon me-3">
-            <img src="/assets/img/imct/EMA_5.png" height="70" width="220" alt="Ema">
-          </span>
-          {{-- <span class="mt-1 ms-1 sidebar-text">
+      <ul class="nav flex-column pt-3 pt-md-0">
+         <li class="nav-item">
+            <a href="/dashboard" class="nav-link d-flex align-items-center">
+               <span class="sidebar-icon me-3">
+                  <img src="/assets/img/imct/EMA_5.png" height="70" width="220" alt="Ema">
+               </span>
+               {{-- <span class="mt-1 ms-1 sidebar-text">
          
           </span> --}}
-        </a>
-      </li>
-      <li class="nav-item {{ Request::segment(1) == 'dashboard' ? 'active' : '' }}">
-        <a href="/dashboard" class="nav-link">
-          <span class="sidebar-icon"> <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg">
-              <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path>
-              <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path>
-            </svg></span></span>
-          <span class="sidebar-text">Inicio</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <span class="nav-link collapsed d-flex justify-content-between align-items-center collapsed" data-bs-toggle="collapse"
-          data-bs-target="#submenu-laravel" aria-expanded="false">
-          <span>
-            <span class="sidebar-icon"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M16.5 12A2.5 2.5 0 0 0 19 9.5A2.5 2.5 0 0 0 16.5 7A2.5 2.5 0 0 0 14 9.5a2.5 2.5 0 0 0 2.5 2.5M9 11a3 3 0 0 0 3-3a3 3 0 0 0-3-3a3 3 0 0 0-3 3a3 3 0 0 0 3 3m7.5 3c-1.83 0-5.5.92-5.5 2.75V19h11v-2.25c0-1.83-3.67-2.75-5.5-2.75M9 13c-2.33 0-7 1.17-7 3.5V19h7v-2.25c0-.85.33-2.34 2.37-3.47C10.5 13.1 9.66 13 9 13Z"/></svg></span>
-            <span class="sidebar-text">Usuarios</span>
-          </span>
-          <span class="link-arrow"><svg class="icon icon-sm" fill="currentColor" viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd"
-                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                clip-rule="evenodd"></path>
-            </svg></span>
-        </span>
-        <div class="multi-level collapse" role="list" id="submenu-laravel" aria-expanded="false">
-          <ul class="flex-column nav">
-            <li class="nav-item {{ Request::segment(1) == 'roles' ? 'active' : '' }}">
-              <a href="/roles" class="nav-link">
-                <span class="sidebar-text">Roles</span>
-              </a>
+            </a>
+         </li>
+         @can('control-total')
+            <li class="nav-item {{ Request::segment(1) == 'dashboard' ? 'active' : '' }}">
+               <a href="/dashboard" class="nav-link">
+                  <span class="sidebar-icon"> <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path>
+                        <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path>
+                     </svg></span></span>
+                  <span class="sidebar-text">Inicio</span>
+               </a>
             </li>
-            <li class="nav-item {{ Request::segment(1) == 'permission' ? 'active' : '' }}">
-              <a href="/permission" class="nav-link">
-                <span class="sidebar-text">Permisos</span>
-              </a>
+         @endcan
+         @can('control-total')
+            <li class="nav-item">
+               <span class="nav-link collapsed d-flex justify-content-between align-items-center collapsed"
+                  data-bs-toggle="collapse" data-bs-target="#submenu-laravel" aria-expanded="false">
+                  <span>
+                     <span class="sidebar-icon"><svg width="24" height="24" viewBox="0 0 24 24">
+                           <path fill="currentColor"
+                              d="M16.5 12A2.5 2.5 0 0 0 19 9.5A2.5 2.5 0 0 0 16.5 7A2.5 2.5 0 0 0 14 9.5a2.5 2.5 0 0 0 2.5 2.5M9 11a3 3 0 0 0 3-3a3 3 0 0 0-3-3a3 3 0 0 0-3 3a3 3 0 0 0 3 3m7.5 3c-1.83 0-5.5.92-5.5 2.75V19h11v-2.25c0-1.83-3.67-2.75-5.5-2.75M9 13c-2.33 0-7 1.17-7 3.5V19h7v-2.25c0-.85.33-2.34 2.37-3.47C10.5 13.1 9.66 13 9 13Z" />
+                        </svg></span>
+                     <span class="sidebar-text">Usuarios</span>
+                  </span>
+                  <span class="link-arrow"><svg class="icon icon-sm" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                           d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                           clip-rule="evenodd"></path>
+                     </svg></span>
+               </span>
+               <div class="multi-level collapse" role="list" id="submenu-laravel" aria-expanded="false">
+                  <ul class="flex-column nav">
+                     <li class="nav-item {{ Request::segment(1) == 'roles' ? 'active' : '' }}">
+                        <a href="/roles" class="nav-link">
+                           <span class="sidebar-text">Roles</span>
+                        </a>
+                     </li>
+                     <li class="nav-item {{ Request::segment(1) == 'permission' ? 'active' : '' }}">
+                        <a href="/permission" class="nav-link">
+                           <span class="sidebar-text">Permisos</span>
+                        </a>
+                     </li>
+                     <li class="nav-item {{ Request::segment(1) == 'users' ? 'active' : '' }}">
+                        <a href="/users" class="nav-link">
+                           <span class="sidebar-text">Admin Usuarios</span>
+                        </a>
+                     </li>
+                  </ul>
+               </div>
             </li>
-            <li class="nav-item {{ Request::segment(1) == 'users' ? 'active' : '' }}">
-              <a href="/users" class="nav-link">
-                <span class="sidebar-text">Admin Usuarios</span>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </li>
-      <li class="nav-item">
-        <span class="nav-link collapsed d-flex justify-content-between align-items-center collapsed" data-bs-toggle="collapse"
-          data-bs-target="#submenu-laravel2" aria-expanded="false">
-          <span>
-            <span class="sidebar-icon"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M17.875 21.425L11.1 14.6q-.5.2-1.012.3Q9.575 15 9 15q-2.5 0-4.25-1.75T3 9q0-.9.25-1.713q.25-.812.7-1.537L7.6 9.4l1.8-1.8l-3.65-3.65q.725-.45 1.537-.7Q8.1 3 9 3q2.5 0 4.25 1.75T15 9q0 .575-.1 1.087q-.1.513-.3 1.013l6.825 6.775Z"/></svg></span>
-            <span class="sidebar-text">Configuracion</span>
-          </span>
-          <span class="link-arrow"><svg class="icon icon-sm" fill="currentColor" viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd"
-                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                clip-rule="evenodd"></path>
-            </svg></span>
-        </span>
-        <div class="multi-level collapse" role="list" id="submenu-laravel2" aria-expanded="false">
-          <ul class="flex-column nav">
-            <li class="nav-item {{ Request::segment(1) == 'areas' ? 'active' : '' }}">
-              <a href="/areas" class="nav-link">
-                <span class="sidebar-text">Areas</span>
-              </a>
-            </li>
-            <li class="nav-item {{ Request::segment(1) == 'procesos' ? 'active' : '' }}">
-              <a href="/procesos" class="nav-link">
-                <span class="sidebar-text">Procesos</span>
-              </a>
-            </li>
-            <li class="nav-item {{ Request::segment(1) == 'ejes' ? 'active' : '' }}">
-              <a href="/ejes" class="nav-link">
-                <span class="sidebar-text">Ejes</span>
-              </a>
-            </li>
-            <li class="nav-item {{ Request::segment(1) == 'programas' ? 'active' : '' }}">
-              <a href="/programas" class="nav-link">
-                <span class="sidebar-text">Programas</span>
-              </a>
-            </li>
-            <li class="nav-item {{ Request::segment(1) == 'mallas' ? 'active' : '' }}">
-              <a href="/mallas" class="nav-link">
-                <span class="sidebar-text">Mallas</span>
-              </a>
-            </li>
-            {{-- <li class="nav-item {{ Request::segment(1) == 'users' ? 'active' : '' }}">
+         @endcan
+
+         @canany(['control-total', 'ver-configuracion'])
+            <li class="nav-item">
+               <span class="nav-link collapsed d-flex justify-content-between align-items-center collapsed"
+                  data-bs-toggle="collapse" data-bs-target="#submenu-laravel2" aria-expanded="false">
+                  <span>
+                     <span class="sidebar-icon"><svg width="24" height="24" viewBox="0 0 24 24">
+                           <path fill="currentColor"
+                              d="M17.875 21.425L11.1 14.6q-.5.2-1.012.3Q9.575 15 9 15q-2.5 0-4.25-1.75T3 9q0-.9.25-1.713q.25-.812.7-1.537L7.6 9.4l1.8-1.8l-3.65-3.65q.725-.45 1.537-.7Q8.1 3 9 3q2.5 0 4.25 1.75T15 9q0 .575-.1 1.087q-.1.513-.3 1.013l6.825 6.775Z" />
+                        </svg></span>
+                     <span class="sidebar-text">Configuracion</span>
+                  </span>
+                  <span class="link-arrow"><svg class="icon icon-sm" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                           d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                           clip-rule="evenodd"></path>
+                     </svg></span>
+               </span>
+               <div class="multi-level collapse" role="list" id="submenu-laravel2" aria-expanded="false">
+                  <ul class="flex-column nav">
+                     <li class="nav-item {{ Request::segment(1) == 'areas' ? 'active' : '' }}">
+                        <a href="/areas" class="nav-link">
+                           <span class="sidebar-text">Areas</span>
+                        </a>
+                     </li>
+                     <li class="nav-item {{ Request::segment(1) == 'procesos' ? 'active' : '' }}">
+                        <a href="/procesos" class="nav-link">
+                           <span class="sidebar-text">Procesos</span>
+                        </a>
+                     </li>
+                     <li class="nav-item {{ Request::segment(1) == 'ejes' ? 'active' : '' }}">
+                        <a href="/ejes" class="nav-link">
+                           <span class="sidebar-text">Ejes</span>
+                        </a>
+                     </li>
+                     <li class="nav-item {{ Request::segment(1) == 'programas' ? 'active' : '' }}">
+                        <a href="/programas" class="nav-link">
+                           <span class="sidebar-text">Programas</span>
+                        </a>
+                     </li>
+                     <li class="nav-item {{ Request::segment(1) == 'mallas' ? 'active' : '' }}">
+                        <a href="/mallas" class="nav-link">
+                           <span class="sidebar-text">Mallas</span>
+                        </a>
+                     </li>
+                     {{-- <li class="nav-item {{ Request::segment(1) == 'users' ? 'active' : '' }}">
               <a href="/users" class="nav-link">
                 <span class="sidebar-text">Admin Usuarios</span>
               </a>
             </li> --}}
-          </ul>
-        </div>
-      </li>
-      {{-- <li class="nav-item">
+                  </ul>
+               </div>
+            </li>
+         @endcanany
+
+         @canany(['control-total', 'ver-configuracion', 'ver-parametrizacion'])
+            <li class="nav-item">
+               <span class="nav-link collapsed d-flex justify-content-between align-items-center collapsed"
+                  data-bs-toggle="collapse" data-bs-target="#submenu-laravel3" aria-expanded="false">
+                  <span>
+                     <span class="sidebar-icon"><svg width="24" height="24" viewBox="0 0 24 24">
+                           <path fill="currentColor"
+                              d="m18.525 9l-1.1-2.4l-2.4-1.1l2.4-1.1l1.1-2.4l1.1 2.4l2.4 1.1l-2.4 1.1Zm2 7l-.8-1.7l-1.7-.8l1.7-.8l.8-1.7l.8 1.7l1.7.8l-1.7.8Zm-13 6l-.3-2.35q-.2-.075-.387-.2q-.188-.125-.313-.25l-2.2.95L1.85 15.8l1.875-1.4v-.8L1.85 12.2l2.475-4.35l2.2.95q.125-.125.313-.25q.187-.125.387-.2l.3-2.35h5l.3 2.35q.2.075.388.2q.187.125.312.25l2.2-.95L18.2 12.2l-1.875 1.4v.8l1.875 1.4l-2.475 4.35l-2.2-.95q-.125.125-.312.25q-.188.125-.388.2l-.3 2.35Zm2.5-5q1.25 0 2.125-.875T13.025 14q0-1.25-.875-2.125T10.025 11q-1.25 0-2.125.875T7.025 14q0 1.25.875 2.125t2.125.875Zm-.75 3h1.5l.2-1.8q.725-.2 1.238-.512q.512-.313 1.012-.838l1.65.75l.7-1.25l-1.45-1.1q.2-.575.2-1.25t-.2-1.25l1.45-1.1l-.7-1.25l-1.65.75q-.5-.525-1.012-.838Q11.7 10 10.975 9.8l-.2-1.8h-1.5l-.2 1.8q-.725.2-1.237.512q-.513.313-1.013.838l-1.65-.75l-.7 1.25l1.45 1.1q-.2.575-.212 1.25q-.013.675.212 1.25l-1.45 1.1l.7 1.25l1.65-.75q.5.525 1.013.838q.512.312 1.237.512Zm.75-6Z" />
+                        </svg></span>
+                     <span class="sidebar-text">Parametrización</span>
+                  </span>
+                  <span class="link-arrow"><svg class="icon icon-sm" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                           d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                           clip-rule="evenodd"></path>
+                     </svg></span>
+               </span>
+               <div class="multi-level collapse" role="list" id="submenu-laravel3" aria-expanded="false">
+                  <ul class="flex-column nav">
+                     <li class="nav-item {{ Request::segment(1) == 'colectivos' ? 'active' : '' }}">
+                        <a href="/colectivos" class="nav-link">
+                           <span class="sidebar-text">Colectivos</span>
+                        </a>
+                     </li>
+                     <li class="nav-item {{ Request::segment(1) == 'instrumentos' ? 'active' : '' }}">
+                        <a href="/instrumentos" class="nav-link">
+                           <span class="sidebar-text">Instrumentos</span>
+                        </a>
+                     </li>
+                     <li class="nav-item {{ Request::segment(1) == 'asignaturas' ? 'active' : '' }}">
+                        <a href="/asignaturas" class="nav-link">
+                           <span class="sidebar-text">Asignaturas</span>
+                        </a>
+                     </li>
+                     <li class="nav-item {{ Request::segment(1) == 'docentes' ? 'active' : '' }}">
+                      <a href="/docentes" class="nav-link">
+                        <span class="sidebar-text">Docentes</span>
+                      </a>
+                    </li>
+                  </ul>
+               </div>
+            </li>
+         @endcanany
+
+         @canany(['control-total', 'ver-configuracion'])
+            <li class="nav-item">
+               <span class="nav-link collapsed d-flex justify-content-between align-items-center collapsed"
+                  data-bs-toggle="collapse" data-bs-target="#submenu-laravel2-convo" aria-expanded="false">
+                  <span>
+                     <span class="sidebar-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24">
+                           <path fill="currentColor"
+                              d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72L5.18 9L12 5.28L18.82 9zM17 15.99l-5 2.73l-5-2.73v-3.72L12 15l5-2.73v3.72z" />
+                        </svg>
+                     </span>
+                     <span class="sidebar-text">Convocatoria</span>
+                  </span>
+                  <span class="link-arrow"><svg class="icon icon-sm" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                           d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                           clip-rule="evenodd"></path>
+                     </svg></span>
+               </span>
+               <div class="multi-level collapse" role="list" id="submenu-laravel2-convo" aria-expanded="false">
+                  <ul class="flex-column nav">
+                     <li class="nav-item {{ Request::segment(1) == 'oferta-academica' ? 'active' : '' }}">
+                        <a href="/oferta-academica" class="nav-link">
+                           <span class="sidebar-text">Oferta academica</span>
+                        </a>
+                     </li>
+                  </ul>
+               </div>
+            </li>
+         @endcanany
+
+
+         {{-- <li class="nav-item">
         <a href="https://themesberg.com/product/laravel/volt-pro-admin-dashboard-template" target="_blank" class="nav-link d-flex justify-content-between">
           <span>
             <span class="sidebar-icon"><svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20"
@@ -149,7 +243,7 @@
           </span>
         </a>
       </li> --}}
-      {{-- <li class="nav-item {{ Request::segment(1) == 'transactions' ? 'active' : '' }}">
+         {{-- <li class="nav-item {{ Request::segment(1) == 'transactions' ? 'active' : '' }}">
         <a href="/transactions" class="nav-link">
           <span class="sidebar-icon"><svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg">
@@ -161,7 +255,7 @@
           <span class="sidebar-text">Transactions</span>
         </a>
       </li> --}}
-      {{-- <li class="nav-item">
+         {{-- <li class="nav-item">
         <a href="https://themesberg.com/product/laravel/volt-pro-admin-dashboard-template" target="_blank" class="nav-link d-flex justify-content-between">
           <span>
             <span class="sidebar-icon">
@@ -178,7 +272,7 @@
           </span>
         </a>
         </li> --}}
-      {{-- <li class="nav-item">
+         {{-- <li class="nav-item">
         <a href="https://themesberg.com/product/laravel/volt-pro-admin-dashboard-template" target="_blank" class="nav-link d-flex justify-content-between">
           <span>
             <span class="sidebar-icon">
@@ -195,7 +289,7 @@
           </span>
         </a>
         </li> --}}
-      {{-- <li class="nav-item">
+         {{-- <li class="nav-item">
         <span
           class="nav-link {{ Request::segment(1) !== 'bootstrap-tables' ? 'collapsed' : '' }} d-flex justify-content-between align-items-center"
           data-bs-toggle="collapse" data-bs-target="#submenu-app">
@@ -226,7 +320,7 @@
           </ul>
         </div>
       </li> --}}
-      {{-- <li class="nav-item">
+         {{-- <li class="nav-item">
         <span class="nav-link collapsed d-flex justify-content-between align-items-center" data-bs-toggle="collapse"
           data-bs-target="#submenu-pages">
           <span>
@@ -291,7 +385,7 @@
           </ul>
         </div>
       </li> --}}
-      {{-- <li class="nav-item">
+         {{-- <li class="nav-item">
         <span class="nav-link collapsed d-flex justify-content-between align-items-center" data-bs-toggle="collapse"
           data-bs-target="#submenu-components">
           <span>
@@ -343,8 +437,8 @@
           </ul>
         </div>
       </li> --}}
-      {{-- <li role="separator" class="dropdown-divider mt-4 mb-3 border-gray-700"></li> --}}
-      {{-- <li class="nav-item">
+         {{-- <li role="separator" class="dropdown-divider mt-4 mb-3 border-gray-700"></li> --}}
+         {{-- <li class="nav-item">
         <a href="/documentation/getting-started/overview/index.html" target="_blank"
           class="nav-link d-flex align-items-center">
           <span class="sidebar-icon"><svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20"
@@ -357,7 +451,7 @@
               class="badge badge-sm bg-secondary ms-1">v1.0</span></span>
         </a>
       </li> --}}
-      {{-- <li class="nav-item">
+         {{-- <li class="nav-item">
         <a href="https://themesberg.com" target="_blank" class="nav-link d-flex align-items-center">
           <span class="sidebar-icon me-2">
             <img class="me-2" src="/assets/img/themesberg.svg" height="20" width="20" alt="Themesberg Logo">
@@ -365,7 +459,7 @@
           <span class="sidebar-text">Themesberg</span>
         </a>
       </li> --}}
-      {{-- <li class="nav-item">
+         {{-- <li class="nav-item">
         <a href="https://updivision.com" target="_blank" class="nav-link d-flex align-items-center">
           <span class="sidebar-icon me-2">
             <img class="me-2" src="/assets/img/updivision.png" height="20" width="20" alt="Themesberg Logo">
@@ -373,7 +467,7 @@
           <span class="sidebar-text">Updivision</span>
         </a>
       </li> --}}
-      {{-- <li class="nav-item">
+         {{-- <li class="nav-item">
         <a href="/upgrade-to-pro"
           class="btn btn-secondary d-flex align-items-center justify-content-center btn-upgrade-pro">
           <span class="sidebar-icon d-inline-flex align-items-center justify-content-center">
@@ -386,6 +480,6 @@
           <span>Upgrade to Pro</span>
         </a>
       </li> --}}
-    </ul>
-  </div>
+      </ul>
+   </div>
 </nav>
